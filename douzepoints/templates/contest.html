@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.min.js"></script>
+    <script type="text/javascript" src="static/js/contest.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ name }}</title>
+</head>
+<body>
+    <h1>{{ name }}</h1>
+    <div id="contestants">
+        {% for c in contestants %}
+        <p>{{ c.name }} <em>{{ c.description }}</em></p>
+        {% endfor %}
+    </div>
+
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.name.label() }}:
+            {{ form.name() }}
+        </div>
+        <div>
+            {{ form.description.label() }}:
+            {{ form.description() }}
+        </div>
+        <input type="submit">
+    </form>
+
+    <a href="results?cid={{ cid }}">Show results</a>
+    <br>
+    <a href="vote?cid={{ cid }}">Vote!</a>
+    <br>
+    <a href="dashboard">Return to dashboard</a>
+
+</body>
+</html>

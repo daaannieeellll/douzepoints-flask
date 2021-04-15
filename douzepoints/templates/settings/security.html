@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security</title>
+</head>
+<body>
+    {% from "security/_macros.html" import render_field_with_errors, render_field %}
+
+    <h1>Change password</h1>
+    <form action="{{ url_for_security('change_password') }}" method="POST" name="change_password_form">
+    {{ change_password_form.hidden_tag() }}
+    {{ render_field_with_errors(change_password_form.password) }}
+    {{ render_field_with_errors(change_password_form.new_password) }}
+    {{ render_field_with_errors(change_password_form.new_password_confirm) }}
+    {{ render_field(change_password_form.submit) }}
+    </form>
+
+
+    <a href="two_factor_authentication">Two factor authentication</a>
+</body>
+</html>

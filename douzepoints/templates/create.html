@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.name.label() }}:
+            {{ form.name() }}
+        </div>
+        <div>
+            {{ form.requires_login.label() }}:
+            {{ form.requires_login() }}
+        </div>
+        <input type="submit">
+    </form>
+</body>
+</html>

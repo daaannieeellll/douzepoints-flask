@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.min.js"></script>
+    <script type="text/javascript" src="static/js/vote.js"></script>
+    <link rel="stylesheet" href="static/css/vote.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vote</title>
+</head>
+<body>
+    <h1>{{ cname }}</h1>
+    
+    <label for="name">Your name:</label>
+    <input type="text" name="name" id="name">
+
+    <ul id="options">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>10</li>
+      <li>12</li>
+    </ul>
+    
+    {% for c in contestants %}
+    <div>
+        <p id="{{ c.id }}">{{ c.name }}</p>
+        <p>{{ c.description }}</p>
+        <div class="points"></div>
+    </div>
+    {% endfor %}
+    <button id="vote">Vote!</button>
+</body>
+</html>

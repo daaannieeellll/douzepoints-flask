@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/css/results.css">
+    <title>{{ name }}</title>
+</head>
+<body>
+    <div id="display">
+        <div id="particles-js"></div>
+        <div id="view">
+            <div id="action">
+                <div id="leaderboard">
+                    {% for c in contestants %}
+                    <div class="contestant" id="{{ c.id }}">
+                        <div class="icon">
+                            <p>6</p>
+                        </div>
+                        <p class="name">{{ c.name|upper }}</p>
+                        <p class="points">0</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div id="media">
+                </div>
+            </div>
+            <div id="progress">
+
+            </div>
+        </div>
+
+        <div id="fullscreen">[ ]</div>
+
+    </div>
+    <button id="nextVote">Go</button>
+
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.js"></script>
+    <script type="text/javascript" src="static/js/results.js"></script>
+    <script>votes = {{ votes|tojson }}</script>
+</body>
+</html>
