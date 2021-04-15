@@ -2,7 +2,7 @@ from .database import Base
 from flask_security import UserMixin, RoleMixin
 from sqlalchemy import create_engine
 from sqlalchemy.orm import relationship, backref
-from sqlalchemy import Boolean, DateTime, Column, Integer, String, ForeignKey
+from sqlalchemy import Boolean, DateTime, Date, Column, Integer, String, ForeignKey
 
 class RolesUsers(Base):
     __tablename__ = 'roles_users'
@@ -51,12 +51,14 @@ class Contest(Base):
     name = Column(String(128))
     requires_login = Column(Boolean)
     owner_id = Column(Integer, ForeignKey('user.id', ondelete='CASCADE'))
+    stop_voting_at = Column(Date())
     contestants = relationship('Contestant', backref=__tablename__)
     voters = relationship('Voter', backref=__tablename__)
     
-    def __init__(self, name='My Contest', requires_login=False):
+    def __init__(self, name, stop_voting_at):
         self.name = name
-        self.requires_login = requires_login
+        # self.requires_login = requires_login
+        self.stop_voting_at = stop_voting_at
 
 class Contestant(Base):
     __tablename__ = 'contestant'

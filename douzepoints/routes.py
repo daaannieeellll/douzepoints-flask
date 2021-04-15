@@ -26,7 +26,7 @@ def create():
     form = CreateContest()
     
     if form.validate_on_submit():
-        contest = Contest(name=request.form['name'])
+        contest = Contest(request.form['name'], request.form['stop_voting_at'])
         contest.owner_id = current_user.id
         # TODO: Random contest id
         db_session.add(contest)

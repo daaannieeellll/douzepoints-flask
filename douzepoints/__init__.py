@@ -40,9 +40,9 @@ def create_app(test_config=None):
 	@app.before_first_request
 	def init_scheduler():
 		scheduler = BackgroundScheduler()
-		from .functions import cleanupUsers
-		scheduler.add_job(func=cleanupUsers, trigger='interval', minutes=1)
-		# scheduler.add_job(func=cleanupUsers, trigger='interval', days=1)
+		from .functions import cleanupUsers, cleanupContests
+		scheduler.add_job(func=cleanupUsers, trigger='interval', days=1)
+		scheduler.add_job(func=cleanupContests, trigger='interval', days=1)
 		scheduler.start()
 		atexit.register(lambda: scheduler.shutdown())
 

@@ -1,7 +1,9 @@
+from datetime import datetime, timedelta
 from flask_wtf import FlaskForm
 from flask_security.forms import RegisterForm, LoginForm
 from wtforms import StringField, PasswordField, BooleanField, Form
 from wtforms.fields.html5 import EmailField
+from wtforms_components import DateField, DateRange
 from wtforms.validators import DataRequired, Length, Email, Regexp, Optional
 from wtforms_alchemy import Unique
 import bleach
@@ -39,11 +41,18 @@ class ExtRegisterForm(RegisterForm):
         return False
 
 class ExtLoginForm(LoginForm):
-    email = StringField('Email or username', [DataRequired()])
+    email = StringField('Username or email', [DataRequired()])
     password = PasswordField('Password', [DataRequired()])
 
 class CreateContest(FlaskForm):
+    today = datetime.today().date()
+    two_weeks = today + timedelta(days=14)
+    four_weeks = today + timedelta(days=28)
+
     name = StringField('Name', [DataRequired()])
+    stop_voting_at = DateField('Stop voting',
+                               validators=[DateRange(min=today, max=four_weeks, message='')],
+                               default=two_weeks)
     requires_login = BooleanField('Requires login')
 
 class CreateContestant(FlaskForm):

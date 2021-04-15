@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 from .database import db_session
-from .models import User, Contestant, Voter, Vote
+from .models import User, Contest, Contestant, Voter, Vote
 
 # Get competition's votes and parse to json
 def getVotes(cid: int):
@@ -23,5 +23,10 @@ def cleanupUsers():
     users = User.query.filter(User.current_login_at < hundredDaysAgo)
     users.delete()
     db_session.commit()
-    db_session.close()
+    return
+
+def cleanupContests():
+    contests = Contest.query.filter(Contest.stop_voting_at + timedelta(days=7) < datetime.today().date())
+    contests.delete()
+    db_session.commit()
     return

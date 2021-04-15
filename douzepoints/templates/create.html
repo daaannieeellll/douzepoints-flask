@@ -12,6 +12,13 @@
             {{ form.name() }}
         </div>
         <div>
+            {{ form.stop_voting_at.label() }}:
+            {{ form.stop_voting_at() }}
+            {% for error in form.stop_voting_at.errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+        <div>
             {{ form.requires_login.label() }}:
             {{ form.requires_login() }}
         </div>
