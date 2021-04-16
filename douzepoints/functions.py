@@ -19,7 +19,7 @@ def getVotes(cid: int):
 def daysLeft(contest):
     closed = False
     days = 0
-    if contest.stop_voting_at <= datetime.today().date():
+    if contest.stop_voting_at >= datetime.today().date():
         closed = False
         delta = contest.stop_voting_at - datetime.today().date()
         days = delta.days
