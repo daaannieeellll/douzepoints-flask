@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from flask_wtf import FlaskForm
 from flask_security.forms import RegisterForm, LoginForm
-from wtforms import StringField, PasswordField, BooleanField, Form
+from wtforms import Form, StringField, PasswordField, BooleanField, SubmitField
 from wtforms.fields.html5 import EmailField
 from wtforms_components import DateField, DateRange
 from wtforms.validators import DataRequired, Length, Email, Regexp, Optional
@@ -63,3 +63,6 @@ def createContestForm(default=14, max=28):
 class CreateContestant(FlaskForm):
     name = StringField('Name', [DataRequired()])
     description = StringField('Description')
+
+class deleteAccount(FlaskForm):
+    submit = SubmitField('Delete account')

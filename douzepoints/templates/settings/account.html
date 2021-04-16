@@ -7,9 +7,9 @@
     <title>Account</title>
 </head>
 <body>
-    <div>
-        <a href="profile">Profile</a>
-        <a href="security">Security</a>
-    </div>
+    <form action="account" method="POST" name="delete_account">
+        {{ form.hidden_tag() }}
+        {{ form.submit() }}
+    </form>
 </body>
 </html>
