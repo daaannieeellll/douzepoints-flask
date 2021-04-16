@@ -37,7 +37,7 @@ def vote(cid, name, data):
                 err = True
                 break
     
-    if err or scores:
+    if err or scores or not votes:
         db_session.query(Voter).filter(Voter.id == voter.id).delete()
         return
 

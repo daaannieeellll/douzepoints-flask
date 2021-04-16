@@ -117,6 +117,10 @@ def vote():
         # Get contest name if existent
         contest = Contest.query.filter_by(id=int(request.args['cid'])).first()
         if contest:
+            closed, _ = daysLeft(contest)
+            if closed:
+                return render_template('voting_closed.html')
+            
             contestants = Contestant.query.filter_by(contest_id=int(request.args['cid'])).all()
             scores = getScores(len(contestants))
             return render_template('vote.html', cname=contest.name, contestants=contestants, scores=scores)
