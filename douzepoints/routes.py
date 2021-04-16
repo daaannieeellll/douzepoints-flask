@@ -8,7 +8,7 @@ from . import socketio
 from .database import db_session
 from .models import Contest, Contestant, User, Owns, Voter, Vote
 from .forms import createContestForm, CreateContestant
-from .functions import getVotes, daysLeft
+from .functions import getVotes, getScores, daysLeft
 
 bp = Blueprint('routes', __name__, url_prefix='')
 
@@ -118,7 +118,8 @@ def vote():
         contest = Contest.query.filter_by(id=int(request.args['cid'])).first()
         if contest:
             contestants = Contestant.query.filter_by(contest_id=int(request.args['cid'])).all()
-            return render_template('vote.html', cname=contest.name, contestants=contestants)
+            scores = getScores(len(contestants))
+            return render_template('vote.html', cname=contest.name, contestants=contestants, scores=scores)
     except:
         pass
     abort(404)

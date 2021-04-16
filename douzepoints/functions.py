@@ -16,9 +16,13 @@ def getVotes(cid: int):
     db_session.close()
     return data
 
+def getScores(amnt):
+    scores = [12,10,8,7,6,5,4,3,2,1]
+    for i in range(10-amnt):
+        scores.pop()
+    return scores
+
 def daysLeft(contest):
-    closed = False
-    days = 0
     if contest.stop_voting_at >= datetime.today().date():
         closed = False
         delta = contest.stop_voting_at - datetime.today().date()

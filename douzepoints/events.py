@@ -3,6 +3,7 @@ from flask_socketio import emit, join_room
 
 from .models import User, Owns, Contest, Contestant, Voter, Vote
 from .database import db_session
+from .functions import getScores
 from . import socketio 
 
 @socketio.on('join_room', namespace='/voting')
@@ -10,9 +11,8 @@ def main_connect(cid):
     join_room(int(cid))
 
 @socketio.on('vote', namespace='/voting')
-def vote(cid, name, data: dict):
+def vote(cid, name, data):
     err = False
-    scores = [1,2,3,4,5,6,7,8,10,12]
     votes = []
 
     voter = Voter(int(cid))
@@ -21,10 +21,12 @@ def vote(cid, name, data: dict):
     db_session.commit()
 
     # Test votes
-    contestants = Contestant.query.filter_by(contest_id=cid)
-    if (contestants.count() > len(data) or contestants.count() > 10) and len(data) != 10:
+    contestants = Contestant.query.filter_by(contest_id=cid).all()
+    scores = getScores(len(contestants))
+
+    # Not all points assigned
+    if (len(contestants) > len(data) or len(contestants) >= 10) and len(data) != 10:
         err = True
-    
     else: 
         for contestant, points in data.items():
             points = int(points)
@@ -35,7 +37,7 @@ def vote(cid, name, data: dict):
                 err = True
                 break
     
-    if err:
+    if err or scores:
         db_session.query(Voter).filter(Voter.id == voter.id).delete()
         return
 
