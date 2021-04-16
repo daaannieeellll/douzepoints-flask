@@ -10,9 +10,15 @@
 <body>
     <h1>{{ name }}</h1>
 
-    <div class="status">
-        <p>{{ days }} days left!</p>
+    {% if voting_stopped%}
+    <div class="status voting_closed">
+        <p>Voting closed. {{ days_left }} days until removal</p>
     </div>
+    {% else %}
+    <div class="status">
+        <p>Voting open. {{ days_left }} days left</p>
+    </div>
+    {% endif %}
 
     <div id="contestants">
         {% for c in contestants %}

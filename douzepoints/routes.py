@@ -8,7 +8,7 @@ from . import socketio
 from .database import db_session
 from .models import Contest, Contestant, User, Owns, Voter, Vote
 from .forms import createContestForm, CreateContestant
-from .functions import getVotes
+from .functions import getVotes, daysLeft
 
 bp = Blueprint('routes', __name__, url_prefix='')
 
@@ -65,12 +65,12 @@ def dashboard():
                     contestant = Contestant(request.args['cid'], request.form['name'], request.form['description'])
                     db_session.add(contestant)
                     db_session.commit()
-
+            
+            # Get contest data
             contest = Contest.query.filter_by(id=request.args['cid']).first()
-            if contest.stop_voting_at > datetime.today().date():
-                delta = contest.stop_voting_at - datetime.today().date()
+            voting_closed, days_left = daysLeft(contest)
             contestants = Contest.query.filter_by(id=request.args['cid']).first().contestants
-            return render_template('contest.html', name=contest.name, cid=contest.id, form=form, contestants=contestants, days=delta.days)
+            return render_template('contest.html', name=contest.name, cid=contest.id, form=form, contestants=contestants, voting_closed=voting_closed, days_left=days_left)
     
     except:
         pass

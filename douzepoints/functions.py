@@ -16,6 +16,21 @@ def getVotes(cid: int):
     db_session.close()
     return data
 
+def daysLeft(contest):
+    closed = False
+    days = 0
+    if contest.stop_voting_at <= datetime.today().date():
+        closed = False
+        delta = contest.stop_voting_at - datetime.today().date()
+        days = delta.days
+    else:
+        closed = True
+        delta = contest.stop_voting_at + timedelta(days=7) - datetime.today().date()
+        days = delta.days
+    return closed, days
+
+
+
 # Remove users that are inactive for over 100 days
 def cleanupUsers():
     hundredDaysAgo = datetime.utcnow() - timedelta(hours=1)
