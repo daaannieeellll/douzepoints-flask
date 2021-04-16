@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 from flask import Blueprint, make_response, send_from_directory, render_template, request, redirect, abort
 from flask_security import current_user, auth_required
 from flask_socketio import emit
@@ -5,7 +7,7 @@ from flask_socketio import emit
 from . import socketio
 from .database import db_session
 from .models import Contest, Contestant, User, Owns, Voter, Vote
-from .forms import CreateContest, CreateContestant
+from .forms import createContestForm, CreateContestant
 from .functions import getVotes
 
 bp = Blueprint('routes', __name__, url_prefix='')
@@ -23,8 +25,9 @@ def home():
 @bp.route('/create', methods=['GET', 'POST'])
 @auth_required()
 def create():
-    form = CreateContest()
-    
+
+    form = createContestForm()
+
     if form.validate_on_submit():
         contest = Contest(request.form['name'], request.form['stop_voting_at'])
         contest.owner_id = current_user.id

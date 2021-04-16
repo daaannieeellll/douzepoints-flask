@@ -25,8 +25,10 @@ def cleanupUsers():
     db_session.commit()
     return
 
+# Removes Contest a week after voting stopped
 def cleanupContests():
-    contests = Contest.query.filter(Contest.stop_voting_at + timedelta(days=7) < datetime.today().date())
+    weekAgo = datetime.today().date() - timedelta(days=7)
+    contests = Contest.query.filter(Contest.stop_voting_at < weekAgo)
     contests.delete()
     db_session.commit()
     return

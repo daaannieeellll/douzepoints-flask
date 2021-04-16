@@ -8,19 +8,13 @@
     <form method="POST" action="">
         {{ form.hidden_tag() }}
         <div>
-            {{ form.name.label() }}:
-            {{ form.name() }}
+            {{ form.name.label() }}:{{ form.name() }}
         </div>
         <div>
-            {{ form.stop_voting_at.label() }}:
-            {{ form.stop_voting_at() }}
-            {% for error in form.stop_voting_at.errors %}
-                <p>{{ error }}</p>
-            {% endfor %}
+            {{ form.stop_voting_at.label() }}:{{ form.stop_voting_at() }}
         </div>
         <div>
-            {{ form.requires_login.label() }}:
-            {{ form.requires_login() }}
+            {{ form.requires_login.label() }}:{{ form.requires_login() }}
         </div>
         <input type="submit">
     </form>

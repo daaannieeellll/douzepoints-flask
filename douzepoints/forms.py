@@ -45,15 +45,20 @@ class ExtLoginForm(LoginForm):
     password = PasswordField('Password', [DataRequired()])
 
 class CreateContest(FlaskForm):
-    today = datetime.today().date()
-    two_weeks = today + timedelta(days=14)
-    four_weeks = today + timedelta(days=28)
-
     name = StringField('Name', [DataRequired()])
-    stop_voting_at = DateField('Stop voting',
-                               validators=[DateRange(min=today, max=four_weeks, message='')],
-                               default=two_weeks)
+    stop_voting_at = DateField('Stop voting')
     requires_login = BooleanField('Requires login')
+
+def createContestForm(default=14, max=28):
+    # Value range
+    minDate = datetime.today().date()
+    defaultDate = minDate + timedelta(days=default)
+    maxDate = minDate + timedelta(days=max)
+    
+    # Set value range
+    form = CreateContest(stop_voting_at=defaultDate)
+    form.stop_voting_at.validators = [DateRange(min=minDate, max=maxDate, message='')]
+    return form
 
 class CreateContestant(FlaskForm):
     name = StringField('Name', [DataRequired()])
