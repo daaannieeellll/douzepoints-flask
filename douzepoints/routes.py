@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 
 from flask import Blueprint, make_response, send_from_directory, render_template, request, redirect, abort
 from flask_security import current_user, auth_required
@@ -67,8 +67,10 @@ def dashboard():
                     db_session.commit()
 
             contest = Contest.query.filter_by(id=request.args['cid']).first()
+            if contest.stop_voting_at > datetime.today().date():
+                delta = contest.stop_voting_at - datetime.today().date()
             contestants = Contest.query.filter_by(id=request.args['cid']).first().contestants
-            return render_template('contest.html', name=contest.name, cid=contest.id, form=form, contestants=contestants)
+            return render_template('contest.html', name=contest.name, cid=contest.id, form=form, contestants=contestants, days=delta.days)
     
     except:
         pass

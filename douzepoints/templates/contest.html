@@ -9,6 +9,11 @@
 </head>
 <body>
     <h1>{{ name }}</h1>
+
+    <div class="status">
+        <p>{{ days }} days left!</p>
+    </div>
+
     <div id="contestants">
         {% for c in contestants %}
         <p>{{ c.name }} <em>{{ c.description }}</em></p>
