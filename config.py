@@ -45,7 +45,7 @@ class Config(object):
     SECURITY_TWO_FACTOR_SETUP_URL = '/settings/two_factor_authentication'
     
     # Set Post-views
-    SECURITY_POST_LOGIN_VIEW = '/dashboard'
+    SECURITY_POST_LOGIN_VIEW = '/contests'
     SECURITY_POST_CHANGE_VIEW = '/settings/security'
 
 class ProductionConfig(Config):

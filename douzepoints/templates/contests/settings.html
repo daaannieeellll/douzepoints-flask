@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Settings</title>
+</head>
+<body>
+    <div>
+        <h1>Settings</h1>
+        <a href="{{ url_for('.contestView', id=contest.id ) }}">Return to contest</a>
+
+        <form action="{{ url_for('.editDetails', id=contest.id ) }}" method="post">
+            {{ details.hidden_tag() }}
+            <div>
+                {{ details.name.label() }}:
+                {{ details.name() }}
+            </div>
+            <div>
+                {{ details.description.label() }}:
+                {{ details.description() }}
+            </div>
+            <div>
+                {{ details.password.label() }}:
+                {{ details.password() }}
+            </div>
+            <button type="submit">Apply changes</button>
+        </form>
+
+        <form action="{{ url_for('.removePassword', id=contest.id) }}" method="post">
+            <div>Remove password</div>
+                {{ password.hidden_tag() }}
+                {{ password.remove() }}
+        </form>
+
+        <form action="{{ url_for('.editContestants', id=contest.id) }}" method="post">
+            <p>Edit contestants</p>
+            <div class="warning"><p>Note: In order to preserve integrity and fairness, votes already cast will be removed. Current number of votes: {{ votes }}</p></div>
+            {% for c in contest.contestants %}
+            <input type="text" name="0{{ c.id }}" placeholder="{{ c.name }}">
+            <input type="checkbox" name="1{{ c.id }}">
+            {% endfor %}
+            <button class="add">+</button>
+            <button type="submit">Apply changes</button>
+        </form>
+        
+        <form action="{{ url_for('.updateGIF', id=contest.id) }}" method="post">
+            <div>Update Thank-You-GIF</div>
+            {{ GIF.hidden_tag() }}
+            {{ GIF.url() }}
+            <button type="submit">Apply changes</button>
+        </form>
+        
+        <form action="{{ url_for('.deleteContest', id=contest.id) }}" method="post">
+            <div>Delete contest</div>
+            {{ delete.hidden_tag() }}
+            {{ delete.submit() }}
+        </form>
+    </div>
+    <script type="text/javascript" src="/static/js/contestSettings.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+
+#giphy-selector {
+    position: relative;
+    height: 25vh;
+    padding: 0 0.4vw;
+    background-color: #111;
+    font-size: 1rem;
+    display: none;  
+  
+    @media (prefers-color-scheme: light) {
+      background-color: #eee;
+    }
+
+    &::before {
+      position: absolute;
+      top: 2%;
+      right: 0;
+      transform: scale(0.5) translate(50%, -50%);
+      content: url(/static/assets/images/PoweredBy_200px-Black_HorizText.png);
+
+      @media (prefers-color-scheme: light) {
+        content: url(/static/assets/images/PoweredBy_200px-White_HorizText.png);
+      }
+    }
+  
+  
+    #outer-container {
+      position: absolute;
+      width: 98%;
+      height: 70%;
+      top: 10%;
+      white-space: nowrap;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      
+      #giph-container {
+        position: relative;
+  
+        div {
+          display: inline-block;
+          padding: 0 3px;
+          position: relative;
+  
+          @supports (-moz-appearance:none) {
+            display: unset;
+          }
+  
+          
+          &#selected {
+            outline: solid 2px #6ed33cde;
+            outline-offset: -2px;
+            position: relative;
+            width: auto;
+            height: auto;
+  
+            &::after {
+              position: absolute;
+              bottom: 0px;
+              right: 0px;
+              padding: 0.5rem;
+              background: #6ed33cde;
+              border-radius: 10% 0 0 0;
+              color: #fff;
+              font-size: 130%;
+              content: "✓";
+            }
+          }
+          .gif {
+            height: 100%;
+            width: auto;
+          }
+        }
+      }
+    }
+    .search {
+      position: absolute;
+      bottom: 2%;
+      height: 15%;
+      width: 98%;
+      
+      input {
+        position: absolute;
+        height: 100%;
+        width: 92.5%;
+        border-radius: 0;
+        font-size: inherit;
+        &::placeholder {
+          font-size: 0.8rem;
+        }
+      }
+      
+      .searchbtn {
+        position: absolute;
+        left: 92.5%;
+        height: 100%;
+        width: 7.5%;
+        background: linear-gradient(45deg, rgba(166,30,210,1) 20%, rgba(255,24,122,1) 100%);
+        cursor: pointer;
+  
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          height: 50%;
+        }
+  
+      }
+      
+    }
+  
+  }

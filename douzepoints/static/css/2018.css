@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+body {
+  background-image: url("/static/assets/images/2018.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  font-size: 1em;
+  color: white;
+}
+
+input, select {
+  border-radius: 0;
+  border: none;
+}
+
+form .info {
+  background: #083F7F;
+}
+
+form .presenter .image-view {
+  background: #083F7F;
+}
+
+form .presenter .image-view::before {
+  color: #f2f2f2;
+}
+
+form .presenter #name {
+  color: white;
+  background: #083F7F;
+}
+
+form .presenter #name::-webkit-input-placeholder {
+  color: #f2f2f2;
+}
+
+form .presenter #name:-ms-input-placeholder {
+  color: #f2f2f2;
+}
+
+form .presenter #name::-ms-input-placeholder {
+  color: #f2f2f2;
+}
+
+form .presenter #name::placeholder {
+  color: #f2f2f2;
+}
+
+form .points .contestant {
+  color: #083F7F;
+  font-size: 2.2vh;
+}
+
+form .points .contestant::before {
+  background-color: #90FFD5;
+  font-size: 140%;
+}
+
+form .points .contestant[data-points="12"]::before {
+  color: #083F7F;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+form .points select {
+  background: #083F7F;
+  color: #e0e0e0;
+  font-size: 110%;
+}
+
+form .points select[name="12"] {
+  color: #262626;
+  background: #E6EC6A;
+}
+/*# sourceMappingURL=2018.css.map */

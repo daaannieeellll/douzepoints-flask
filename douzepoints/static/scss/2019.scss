@@ -1,0 +1,101 @@
+@import "colors";
+@import "mixins";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+
+body {
+  font-size: 1em;
+  background-color: hsl(250, 30%, 35%);
+  color: $white;
+}
+
+input, select {
+  border-radius: 0;
+  border: none;
+}
+
+form {
+  background:
+  linear-gradient(to right,
+    hsla(250,50%,0,0.2) 0%,
+    hsla(250,50%,0,0.2) 100%
+  ),
+  radial-gradient(at top center,
+    hsla(250,50%,65%,1) 0%,
+    hsla(250,30%,20%,0) 70%
+  ),
+  linear-gradient(to right,
+    hsla(250,50%,65%,0.1) 0%,
+    hsla(250,50%,65%,0.2) 10%,
+    hsla(250,50%,65%,0) 50%
+  ),
+  linear-gradient(to left,
+    hsla(250,50%,65%,0.1) 0%,
+    hsla(250,50%,65%,0.2) 10%,
+    hsla(250,50%,65%,0) 50%
+  );
+  backdrop-filter: blur(1px);
+  
+  border-top: 2px solid hsla(250, 40%, 80%, .5);
+  border-bottom: 1px solid hsla(250, 40%, 80%, .5);
+  
+  .info {
+    background: $transparent-purple;
+  }
+
+  .presenter {
+    .image-view {
+      background: $transparent-purple;
+
+      &::before {
+        color: $grey;
+      }
+    }
+
+    #name {
+      color: $white;
+      background: $transparent-purple;
+
+      &::placeholder {
+        color: $grey;
+      }
+    }
+  }
+
+
+  .points {
+    .contestant {
+      color: #e0e0e0;
+      font-size: 2.2vh; 
+
+      &::before {
+        background-color: $medium-purple;
+        font-size: 140%;
+      }
+
+      &[data-points="12"] {
+        &::before {
+          color: $black;
+          background-color: $douze-icon;
+          box-shadow: 0px 0px 5px $douze-icon;
+        }
+      }
+    }
+
+    select {
+      background: linear-gradient(to right, $russian-violet 0%, $medium-purple 70%);
+      color: #e0e0e0;
+      font-size: 110%;
+
+      &[name="12"]{
+        color: $black;
+        background: $douze-bar;
+        box-shadow: 0px 0px 5px $douze-bar;
+      }
+
+      option {
+        color: black;
+      }
+    }
+  }
+}

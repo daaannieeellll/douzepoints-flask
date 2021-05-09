@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+input, select {
+  border-radius: 0;
+  border: none;
+}
+
+form {
+  width: 100vw;
+  max-width: 100vh;
+  position: absolute;
+}
+
+@media (min-width: 1025px) {
+  form {
+    height: 89vh;
+    width: 93vw;
+    max-width: none;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
+@media (min-width: 1025px) {
+  form .info {
+    position: absolute;
+    top: 5%;
+    left: 2.5%;
+    width: 54.5%;
+    height: 49.5%;
+  }
+}
+
+form .presenter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (min-width: 1025px) {
+  form .presenter {
+    position: absolute;
+    right: 2.5%;
+    top: 5%;
+    width: 39%;
+    height: 80.5%;
+  }
+}
+
+form .presenter .image-view {
+  position: relative;
+  width: 100%;
+  padding-top: 103%;
+}
+
+@media (min-width: 1025px) {
+  form .presenter .image-view {
+    height: 92.4%;
+    padding-top: 0;
+  }
+}
+
+form .presenter .image-view img {
+  position: absolute;
+  top: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+form .presenter .image-view::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  content: "Click here to choose your GIF representation";
+  text-align: center;
+}
+
+form .presenter #name {
+  font-size: 1.3rem;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  margin: 0.27vh 0;
+}
+
+@media (min-width: 1025px) {
+  form .presenter #name {
+    height: 7%;
+    margin: 0;
+  }
+}
+
+form .points {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  width: 100%;
+}
+
+@media (min-width: 1025px) {
+  form .points {
+    position: absolute;
+    top: 55%;
+    left: 2.5%;
+    width: 54.5%;
+    height: 31%;
+  }
+}
+
+form .points .contestant {
+  height: 50px;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2vh;
+  margin: unset;
+  margin-bottom: 0.27vh;
+}
+
+@media (min-width: 1025px) {
+  form .points .contestant {
+    height: unset;
+    width: 49%;
+    -ms-flex-preferred-size: 19%;
+        flex-basis: 19%;
+  }
+}
+
+form .points .contestant::before {
+  position: absolute;
+  height: 50px;
+  width: 88px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  content: attr(data-points);
+}
+
+@media (min-width: 1025px) {
+  form .points .contestant::before {
+    height: 19%;
+  }
+}
+
+form .points select {
+  -webkit-appearance: none;
+  height: 100%;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 103px;
+  z-index: -1;
+  border: none;
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/*# sourceMappingURL=base.css.map */

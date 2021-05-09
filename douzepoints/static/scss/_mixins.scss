@@ -1,0 +1,6 @@
+@mixin center-text($width, $height) {
+    text-align: center;
+    width: #{$width};
+    height: #{$height};
+    line-height: #{$height};
+}

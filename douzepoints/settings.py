@@ -3,7 +3,7 @@ from flask_security import current_user, auth_required
 
 from .database import db_session
 from .models import User
-from .forms import deleteAccount
+from .forms import DeleteAccount
 
 bp = Blueprint('settings', __name__, url_prefix='/settings')
 
@@ -15,7 +15,7 @@ def profile():
 @auth_required()
 @bp.route('account', methods=['GET', 'POST'])
 def account():
-    form = deleteAccount()
+    form = DeleteAccount()
     if form.validate_on_submit():
         user = User.query.filter_by(id=current_user.id)
         user.delete()

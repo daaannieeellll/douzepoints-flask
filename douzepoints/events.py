@@ -1,21 +1,17 @@
 from flask_security import current_user
 from flask_socketio import emit, join_room
 
-from .models import User, Owns, Contest, Contestant, Voter, Vote
+from .models import User, Contest, Contestant, Voter, Vote
 from .database import db_session
 from .functions import getScores
-from . import socketio 
-
-@socketio.on('join_room', namespace='/voting')
-def main_connect(cid):
-    join_room(int(cid))
+from . import socketio
 
 @socketio.on('vote', namespace='/voting')
 def vote(cid, name, data):
     err = False
     votes = []
 
-    voter = Voter(int(cid))
+    voter = Voter(cid)
     voter.name = name
     db_session.add(voter)
     db_session.commit()

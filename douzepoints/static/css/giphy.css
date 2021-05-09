@@ -1,0 +1,131 @@
+@charset "UTF-8";
+#giphy-selector {
+  position: relative;
+  height: 25vh;
+  padding: 0 0.4vw;
+  background-color: #111;
+  font-size: 1rem;
+  display: none;
+}
+
+@media (prefers-color-scheme: light) {
+  #giphy-selector {
+    background-color: #eee;
+  }
+}
+
+#giphy-selector::before {
+  position: absolute;
+  top: 2%;
+  right: 0;
+  -webkit-transform: scale(0.5) translate(50%, -50%);
+          transform: scale(0.5) translate(50%, -50%);
+  content: url(/static/assets/images/PoweredBy_200px-Black_HorizText.png);
+}
+
+@media (prefers-color-scheme: light) {
+  #giphy-selector::before {
+    content: url(/static/assets/images/PoweredBy_200px-White_HorizText.png);
+  }
+}
+
+#giphy-selector #outer-container {
+  position: absolute;
+  width: 98%;
+  height: 70%;
+  top: 10%;
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+#giphy-selector #outer-container #giph-container {
+  position: relative;
+}
+
+#giphy-selector #outer-container #giph-container div {
+  display: inline-block;
+  padding: 0 3px;
+  position: relative;
+}
+
+@supports (-moz-appearance: none) {
+  #giphy-selector #outer-container #giph-container div {
+    display: unset;
+  }
+}
+
+#giphy-selector #outer-container #giph-container div#selected {
+  outline: solid 2px #6ed33cde;
+  outline-offset: -2px;
+  position: relative;
+  width: auto;
+  height: auto;
+}
+
+#giphy-selector #outer-container #giph-container div#selected::after {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  padding: 0.5rem;
+  background: #6ed33cde;
+  border-radius: 10% 0 0 0;
+  color: #fff;
+  font-size: 130%;
+  content: "✓";
+}
+
+#giphy-selector #outer-container #giph-container div .gif {
+  height: 100%;
+  width: auto;
+}
+
+#giphy-selector .search {
+  position: absolute;
+  bottom: 2%;
+  height: 15%;
+  width: 98%;
+}
+
+#giphy-selector .search input {
+  position: absolute;
+  height: 100%;
+  width: 92.5%;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+#giphy-selector .search input::-webkit-input-placeholder {
+  font-size: 0.8rem;
+}
+
+#giphy-selector .search input:-ms-input-placeholder {
+  font-size: 0.8rem;
+}
+
+#giphy-selector .search input::-ms-input-placeholder {
+  font-size: 0.8rem;
+}
+
+#giphy-selector .search input::placeholder {
+  font-size: 0.8rem;
+}
+
+#giphy-selector .search .searchbtn {
+  position: absolute;
+  left: 92.5%;
+  height: 100%;
+  width: 7.5%;
+  background: linear-gradient(45deg, #a61ed2 20%, #ff187a 100%);
+  cursor: pointer;
+}
+
+#giphy-selector .search .searchbtn img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 50%;
+}
+/*# sourceMappingURL=giphy.css.map */

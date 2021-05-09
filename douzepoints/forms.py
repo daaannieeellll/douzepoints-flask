@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+from flask.app import Flask
 from flask_wtf import FlaskForm
 from flask_security.forms import RegisterForm, LoginForm
 from wtforms import Form, StringField, PasswordField, BooleanField, SubmitField
@@ -46,8 +47,8 @@ class ExtLoginForm(LoginForm):
 
 class CreateContest(FlaskForm):
     name = StringField('Name', [DataRequired()])
+    description = StringField('Description')
     stop_voting_at = DateField('Stop voting')
-    requires_login = BooleanField('Requires login')
 
 def createContestForm(default=14, max=28):
     # Value range
@@ -60,9 +61,27 @@ def createContestForm(default=14, max=28):
     form.stop_voting_at.validators = [DateRange(min=minDate, max=maxDate, message='')]
     return form
 
+class AuthenticateContest(FlaskForm):
+    password = PasswordField('Password', [DataRequired()])
+
 class CreateContestant(FlaskForm):
     name = StringField('Name', [DataRequired()])
     description = StringField('Description')
 
-class deleteAccount(FlaskForm):
+class ContestDetails(FlaskForm):
+    name = StringField('New name')
+    description = StringField('New description')
+    password = PasswordField('New password')
+    # stop_voting_at = DateField('New deadline')
+
+class ContestPassword(FlaskForm):
+    remove = SubmitField('Remove password')
+
+class ContestGIF(FlaskForm):
+    url = StringField('Thank you GIF', [DataRequired()])
+
+class DeleteContest(FlaskForm):
+    submit = SubmitField('Delete contest')
+
+class DeleteAccount(FlaskForm):
     submit = SubmitField('Delete account')

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ contest.name }}</title>
+</head>
+<body>
+    <h1>{{ contest.name }}</h1>
+    {% if contest.description %}<p>{{ contest.description }}</p>{% endif %}
+
+    {% if voting_closed%}
+    <div class="status voting_closed">
+        <p>Voting closed. {{ days_left }} days until removal</p>
+    </div>
+    {% else %}
+    <div class="status">
+        <p>Voting open. {{ days_left }} days left</p>
+    </div>
+    {% endif %}
+
+    <p>Share this contest! {{ contest.code }}</p>
+
+    <a href="/contests/{{ contest.id }}/settings">Edit</a>
+    <br>
+    <a href="/show/{{ contest.id }}">Show full voting</a>
+    <br>
+    <a href="/results/{{ contest.id }}">View results</a>
+    <br>
+    <a href="/vote/{{ contest.code }}">Vote!</a>
+    <br>
+    <a href="/contests">Return to dashboard</a>
+
+</body>
+</html>

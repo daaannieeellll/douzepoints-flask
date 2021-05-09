@@ -57,7 +57,7 @@ def create_app(test_config=None):
 		db_session.remove()
 
 	# Connect Routes
-	from .routes import bp as bp_routes
+	from .views import bp as bp_routes
 	app.register_blueprint(bp_routes)
 	from .settings import bp as bp_settings
 	app.register_blueprint(bp_settings)

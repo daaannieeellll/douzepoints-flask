@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/show.css">
+    <title>{{ contest.name }}</title>
+</head>
+<body>
+    <div id="display">
+        <div id="particles-js"></div>
+        <div id="view">
+            <div id="action">
+                <div id="leaderboard">
+                    {% for c in contest.contestants %}
+                    <div class="contestant" id="{{ c.id }}">
+                        <div class="icon">
+                            <p>6</p>
+                        </div>
+                        <p class="name">{{ c.name|upper }}</p>
+                        <p class="points">0</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div id="media">
+                </div>
+            </div>
+            <div id="progress">
+
+            </div>
+        </div>
+
+        <div id="fullscreen">[ ]</div>
+
+    </div>
+    <button id="nextVote">Go</button>
+
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/show.js"></script>
+    <script>votes = {{ votes|tojson }}</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+@import "colors";
+@import "mixins";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+
+$background: #081740;
+$contestant: #083F7F;
+$highlight: #90FFD5;
+$douze: #E6EC6A;
+
+body {
+  background-image: url("/static/assets/images/2018.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  font-size: 1em;
+  color: $white;
+}
+
+input, select {
+  border-radius: 0;
+  border: none;
+}
+
+form {
+  
+  .info {
+    background: $contestant;
+  }
+
+  .presenter {
+    .image-view {
+      background: $contestant;
+
+      &::before {
+        color: $grey;
+      }
+    }
+
+    #name {
+      color: $white;
+      background: $contestant;
+
+      &::placeholder {
+        color: $grey;
+      }
+    }
+  }
+
+
+  .points {
+    .contestant {
+      color: $contestant;
+      font-size: 2.2vh; 
+
+      &::before {
+        background-color: $highlight;
+        font-size: 140%;
+      }
+
+      &[data-points="12"] {
+        &::before {
+          color: $contestant;
+          background-color: hsla(0,0,0,0);
+        }
+      }
+    }
+
+    select {
+      background: $contestant;
+      color: #e0e0e0;
+      font-size: 110%;
+
+      &[name="12"]{
+        color: $black;
+        background: $douze;
+      }
+
+    }
+  }
+}

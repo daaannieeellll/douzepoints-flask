@@ -7,7 +7,6 @@
     <title>Login</title>
 </head>
 <body>
-    {% from "security/_macros.html" import render_field_with_errors, render_field, render_field_errors %}
     <h1>Login</h1>
     <form action="{{ url_for_security('login') }}" method="POST" name="login_user_form">
         {{ login_user_form.hidden_tag() }}
@@ -16,7 +15,9 @@
         {{ login_user_form.email()|safe }}
         {% if login_user_form.email.errors %}
         <ul>
-            {% for error in login_user_form.email.errors %}<li>{{ error }}</li>{% endfor %}
+            {% for error in login_user_form.email.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
         </ul>
         {% endif %}
 
@@ -24,7 +25,9 @@
         {{ login_user_form.password()|safe }}
         {% if login_user_form.password.errors %}
         <ul>
-            {% for error in login_user_form.password.errors %}<li>{{ error }}</li>{% endfor %}
+            {% for error in login_user_form.password.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
         </ul>
         {% endif %}
 
@@ -32,19 +35,21 @@
         {{ login_user_form.remember()|safe }}
         {% if login_user_form.remember.errors %}
         <ul>
-            {% for error in login_user_form.remember.errors %}<li>{{ error }}</li>{% endfor %}
+            {% for error in login_user_form.remember.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
         </ul>
         {% endif %}
 
         {% if login_user_form.csrf_token and login_user_form.csrf_token.errors %}
         <ul>
-        {% for error in login_user_form.csrf_token.errors %}
+            {% for error in login_user_form.csrf_token.errors %}
             <li>{{ error }}</li>
-        {% endfor %}
+            {% endfor %}
         </ul>
         {% endif %}
 
-        {{ render_field(login_user_form.submit) }}
+        {{ login_user_form.submit() }}
     </form>
     <p>New to DouzePoints?</p><a href="{{ url_for_security('register') }}">Create an account</a>
 </body>

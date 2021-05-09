@@ -1,46 +1,271 @@
-li {
-    list-style-type: none;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  background-color: #473e74;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+input, select {
+  border-radius: 0;
+  border: none;
+}
+
+form {
+  width: 100vw;
+  max-width: 100vh;
+  position: absolute;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), radial-gradient(at top center, #8879d2 0%, rgba(41, 36, 66, 0) 70%), -webkit-gradient(linear, left top, right top, from(rgba(136, 121, 210, 0.1)), color-stop(10%, rgba(136, 121, 210, 0.2)), color-stop(50%, rgba(136, 121, 210, 0))), -webkit-gradient(linear, right top, left top, from(rgba(136, 121, 210, 0.1)), color-stop(10%, rgba(136, 121, 210, 0.2)), color-stop(50%, rgba(136, 121, 210, 0)));
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), radial-gradient(at top center, #8879d2 0%, rgba(41, 36, 66, 0) 70%), linear-gradient(to right, rgba(136, 121, 210, 0.1) 0%, rgba(136, 121, 210, 0.2) 10%, rgba(136, 121, 210, 0) 50%), linear-gradient(to left, rgba(136, 121, 210, 0.1) 0%, rgba(136, 121, 210, 0.2) 10%, rgba(136, 121, 210, 0) 50%);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  border-top: 2px solid rgba(190, 184, 224, 0.5);
+  border-bottom: 1px solid rgba(190, 184, 224, 0.5);
+}
+
+@media (min-width: 1025px) {
+  form {
+    height: 89vh;
+    width: 93vw;
+    max-width: none;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
   }
-  
-  
-  .points {
-    display: inline-block;
-    margin: 0 10px;
-    padding: 10px;
-    border: 1px solid lightgrey;
-    border-radius: 10%;
+}
+
+form .info {
+  background: #6a609f;
+}
+
+@media (min-width: 1025px) {
+  form .info {
+    position: absolute;
+    top: 5%;
+    left: 2.5%;
+    width: 54.5%;
+    height: 49.5%;
   }
-  
-  body {
-    font: 13px Verdana;
+}
+
+form .presenter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (min-width: 1025px) {
+  form .presenter {
+    position: absolute;
+    right: 2.5%;
+    top: 5%;
+    width: 39%;
+    height: 80.5%;
   }
-  
-  .remove {
-    display: inline-block;
-    padding-left: 10px;
+}
+
+form .presenter .image-view {
+  position: relative;
+  width: 100%;
+  padding-top: 103%;
+  background: #6a609f;
+}
+
+@media (min-width: 1025px) {
+  form .presenter .image-view {
+    height: 92.4%;
     padding-top: 0;
-    padding-bottom: 0;
-    margin-top: 0;
-    margin-bottom: 0;
   }
-  
-  .remove:hover {
-    cursor: pointer;
+}
+
+form .presenter .image-view img {
+  position: absolute;
+  top: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+form .presenter .image-view::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  content: "Click here to choose your GIF representation";
+  text-align: center;
+  color: #f2f2f2;
+}
+
+form .presenter #name {
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  background: #6a609f;
+  margin: 0.27vh 0;
+}
+
+form .presenter #name::-webkit-input-placeholder {
+  color: #f2f2f2;
+}
+
+form .presenter #name:-ms-input-placeholder {
+  color: #f2f2f2;
+}
+
+form .presenter #name::-ms-input-placeholder {
+  color: #f2f2f2;
+}
+
+form .presenter #name::placeholder {
+  color: #f2f2f2;
+}
+
+@media (min-width: 1025px) {
+  form .presenter #name {
+    height: 7%;
+    margin: 0;
   }
-  
-  ul li {
-    display: inline-block;
-    margin: 0 10px;
-    padding: 10px;
-    border: 1px solid lightgrey;
-    border-radius: 10%;
+}
+
+form .points {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  width: 100%;
+}
+
+@media (min-width: 1025px) {
+  form .points {
+    position: absolute;
+    top: 55%;
+    left: 2.5%;
+    width: 54.5%;
+    height: 31%;
   }
-  
-  ul li:hover {
-    cursor: move;
+}
+
+form .points .contestant {
+  height: 50px;
+  width: 100%;
+  color: #e0e0e0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2vh;
+  margin: unset;
+  margin-bottom: 0.27vh;
+}
+
+@media (min-width: 1025px) {
+  form .points .contestant {
+    height: unset;
+    width: 49%;
+    -ms-flex-preferred-size: 19%;
+        flex-basis: 19%;
   }
-  
-  p {
-    display: inline-block;
+}
+
+form .points .contestant::before {
+  position: absolute;
+  height: 50px;
+  width: 88px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #9f8fef;
+  content: attr(data-points);
+  font-size: 140%;
+}
+
+@media (min-width: 1025px) {
+  form .points .contestant::before {
+    height: 19%;
   }
-  
+}
+
+form .points .contestant[data-points="12"]::before {
+  color: #262626;
+  background-color: #fcf4ca;
+  -webkit-box-shadow: 0px 0px 5px #fcf4ca;
+          box-shadow: 0px 0px 5px #fcf4ca;
+}
+
+form .points select {
+  -webkit-appearance: none;
+  background: -webkit-gradient(linear, left top, right top, from(#23174f), color-stop(70%, #9f8fef));
+  background: linear-gradient(to right, #23174f 0%, #9f8fef 70%);
+  height: 100%;
+  width: 100%;
+  color: #e0e0e0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 110%;
+  padding-left: 103px;
+  z-index: -1;
+  border: none;
+  outline: none;
+}
+
+form .points select[name="12"] {
+  color: #262626;
+  background: #efd68f;
+  -webkit-box-shadow: 0px 0px 5px #efd68f;
+          box-shadow: 0px 0px 5px #efd68f;
+}
+
+form .points select option {
+  color: black;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/*# sourceMappingURL=vote.css.map */

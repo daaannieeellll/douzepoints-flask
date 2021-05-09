@@ -1,43 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="static/css/results.css">
-    <title>{{ name }}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/results.css">
+    <title>Results</title>
 </head>
 <body>
-    <div id="display">
-        <div id="particles-js"></div>
-        <div id="view">
-            <div id="action">
-                <div id="leaderboard">
-                    {% for c in contestants %}
-                    <div class="contestant" id="{{ c.id }}">
-                        <div class="icon">
-                            <p>6</p>
-                        </div>
-                        <p class="name">{{ c.name|upper }}</p>
-                        <p class="points">0</p>
-                    </div>
-                    {% endfor %}
-                </div>
-                <div id="media">
-                </div>
-            </div>
-            <div id="progress">
-
-            </div>
-        </div>
-
-        <div id="fullscreen">[ ]</div>
-
-    </div>
-    <button id="nextVote">Go</button>
-
-    
-    <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.js"></script>
-    <script type="text/javascript" src="static/js/results.js"></script>
-    <script>votes = {{ votes|tojson }}</script>
+    <h1>{{contest.name}}</h1>
+    <a href="" id="json">Download json</a>
+    <a href="" id="csv">Download csv</a>
+    <script>var cname = "{{contest.name}}"; var contestants = {{contestants|tojson}}; var votes = {{votes|tojson}}</script>
+    <script type="text/javascript" src="/static/js/results.js"></script>
 </body>
 </html>

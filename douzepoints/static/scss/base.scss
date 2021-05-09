@@ -1,0 +1,174 @@
+@import "colors";
+@import "mixins";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input, select {
+  border-radius: 0;
+  border: none;
+}
+
+form {
+  width: 100vw;
+  max-width: 100vh;
+  position: absolute;  
+  
+  @media (min-width:1025px) {
+    height: 89vh;
+    width: 93vw;
+    max-width: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .info {
+    @media (min-width:1025px) {
+      position: absolute;
+      top: 5%;
+      left: 2.5%;
+      width: 54.5%;
+      height: 49.5%;
+    }
+  }
+
+  .presenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    @media (min-width:1025px) {
+      position: absolute;
+      right: 2.5%;
+      top: 5%;
+      width: 39%;
+      height: 80.5%;
+    }
+
+    .image-view {
+      position: relative;
+      width: 100%;
+      padding-top: 103%;
+
+      @media (min-width:1025px) {
+        height: 92.4%;
+        padding-top: 0;
+      }
+
+      
+      img {
+        position: absolute;
+        top: 0;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        content: "Click here to choose your GIF representation";
+        text-align: center;
+      }
+    }
+
+    #name {
+      font-size: 1.3rem;
+      text-align: center;
+      width: 100%;
+      height: 50px;
+      margin: 0.27vh 0;
+
+      @media (min-width:1025px) {
+        height: 7%;
+        margin: 0;
+      }
+    }
+  }
+
+
+  .points {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: space-between;
+    width: 100%;
+
+    @media (min-width:1025px) {
+      position: absolute;
+      top: 55%;
+      left: 2.5%;
+      width: 54.5%;
+      height: 31%;
+    }
+
+    .contestant {
+      height: 50px;
+      width: 100%;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2vh; 
+      margin: unset;
+      margin-bottom: 0.27vh;
+
+      @media (min-width:1025px) {
+        height: unset;
+        width: 49%;
+        flex-basis: 19%;
+      }
+
+      &::before {
+        position: absolute;
+        height: 50px;
+        width: 88px;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        content: attr(data-points);
+        
+        @media (min-width:1025px) {
+          height: 19%;
+        }
+
+      }
+    }
+
+    select {
+      -webkit-appearance: none;
+      height: 100%;
+      width: 100%;
+      font-family: 'Montserrat', sans-serif;
+      padding-left: 103px;
+      z-index: -1;
+      border: none;
+      outline: none;
+    }
+  }
+}
+
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #111;
+}
+::-webkit-scrollbar-thumb {
+  background: #444; 
+  border-radius: 7px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
