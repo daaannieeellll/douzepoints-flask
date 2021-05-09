@@ -1,25 +1,19 @@
-import os
 import atexit
 
-from flask import Flask, current_app, render_template, render_template_string
-from flask_security import Security, current_user, auth_required, hash_password, SQLAlchemySessionUserDatastore, uia_email_mapper
-from passlib import totp
-from flask_socketio import SocketIO
+from flask import Flask, current_app
+from flask_babel import Babel
+from flask_security import Security, SQLAlchemySessionUserDatastore
 from apscheduler.schedulers.background import BackgroundScheduler
 
 from .database import db_session, init_db
-from .models import User, Role, Contest, Contestant
-from .forms import ExtRegisterForm, ExtLoginForm, uia_username_mapper
+from .models import User, Role
+from .forms import ExtRegisterForm, ExtLoginForm
 
 # Convenient references
-from werkzeug.datastructures import MultiDict
 from werkzeug.local import LocalProxy
 _security = LocalProxy(lambda: current_app.extensions['security'])
 _datastore = LocalProxy(lambda: _security.datastore)
 
-
-socketio = SocketIO()
-from . import events
 
 def create_app(test_config=None):
 	# create and configure the app
@@ -33,8 +27,8 @@ def create_app(test_config=None):
 	user_datastore = SQLAlchemySessionUserDatastore(db_session, User, Role)
 	security = Security(app, user_datastore, register_form=ExtRegisterForm, login_form=ExtLoginForm)
 
-	# Connect Socket.io
-	socketio.init_app(app, async_mode=None, logger=False, engineio_logger=False)
+	# Initialize Babel
+	babel = Babel(app)
 
 	# Initialize Scheduler
 	@app.before_first_request
