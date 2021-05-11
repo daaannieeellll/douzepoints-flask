@@ -25,7 +25,7 @@ class Config(object):
 
     # Set Templates
     SECURITY_LOGIN_USER_TEMPLATE = 'security/login.html'
-    SECURITY_REGISTER_USER_TEMPLATE = 'security/join.html'
+    SECURITY_REGISTER_USER_TEMPLATE = 'security/signup.html'
     SECURITY_TWO_FACTOR_VERIFY_CODE_TEMPLATE = 'security/two_factor.html'
     
     SECURITY_TWO_FACTOR_SETUP_TEMPLATE = 'settings/two_factor.html'
@@ -38,7 +38,7 @@ class Config(object):
 
     # Set URL's
     SECURITY_LOGIN_URL = '/login'
-    SECURITY_REGISTER_URL = '/join'
+    SECURITY_REGISTER_URL = '/signup'
     SECURITY_TWO_FACTOR_TOKEN_VALIDATION_URL='/two_factor'
     
     SECURITY_CHANGE_URL = '/settings/security'

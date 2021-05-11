@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
 body {
   background-image: url("/static/assets/images/2018.png");
-  background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
   font-size: 1em;
@@ -13,12 +12,51 @@ input, select {
   border: none;
 }
 
+@media (min-width: 1025px) {
+  form {
+    height: 78vh;
+    width: 80vw;
+    max-width: none;
+    top: 50.5%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
 form .info {
   background: #083F7F;
 }
 
+@media (min-width: 1025px) {
+  form .info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 66.7%;
+    height: 53%;
+  }
+}
+
+@media (min-width: 1025px) {
+  form .presenter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 33%;
+    height: 79%;
+  }
+}
+
 form .presenter .image-view {
   background: #083F7F;
+}
+
+@media (min-width: 1025px) {
+  form .presenter .image-view {
+    height: 66.9%;
+    padding-top: 0;
+  }
 }
 
 form .presenter .image-view::before {
@@ -28,6 +66,13 @@ form .presenter .image-view::before {
 form .presenter #name {
   color: white;
   background: #083F7F;
+}
+
+@media (min-width: 1025px) {
+  form .presenter #name {
+    height: 32.3%;
+    margin: 0;
+  }
 }
 
 form .presenter #name::-webkit-input-placeholder {
@@ -46,9 +91,28 @@ form .presenter #name::placeholder {
   color: #f2f2f2;
 }
 
+@media (min-width: 1025px) {
+  form .points {
+    position: absolute;
+    top: 53.5%;
+    left: 0;
+    width: 66.7%;
+    height: 32.6%;
+  }
+}
+
 form .points .contestant {
   color: #083F7F;
   font-size: 2.2vh;
+}
+
+@media (min-width: 1025px) {
+  form .points .contestant {
+    height: unset;
+    width: 49.8%;
+    -ms-flex-preferred-size: 18.9%;
+        flex-basis: 18.9%;
+  }
 }
 
 form .points .contestant::before {
@@ -70,5 +134,17 @@ form .points select {
 form .points select[name="12"] {
   color: #262626;
   background: #E6EC6A;
+}
+
+@media (min-width: 1025px) {
+  form button {
+    position: absolute;
+    top: 79.5%;
+    right: 0;
+    width: 33%;
+    height: 6.3%;
+    background-color: #90FFD5;
+    color: #083F7F;
+  }
 }
 /*# sourceMappingURL=2018.css.map */

@@ -22,14 +22,43 @@ input, select {
 }
 
 form {
-  
+  @media (min-width: 1025px) {  
+    height: 78vh;
+    width: 80vw;
+    max-width: none;
+    top: 50.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   .info {
     background: $contestant;
+    
+    @media (min-width: 1025px) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 66.7%;
+      height: 53%;
+    }
   }
 
   .presenter {
+    @media (min-width: 1025px) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 33%;
+      height: 79%;
+    }
+
     .image-view {
       background: $contestant;
+      
+      @media (min-width: 1025px) {
+        height: 66.9%;
+        padding-top: 0;
+      }
 
       &::before {
         color: $grey;
@@ -40,6 +69,11 @@ form {
       color: $white;
       background: $contestant;
 
+      @media (min-width: 1025px) {
+        height: 32.3%;
+        margin: 0;
+      }
+
       &::placeholder {
         color: $grey;
       }
@@ -48,9 +82,23 @@ form {
 
 
   .points {
+    @media (min-width: 1025px) {
+      position: absolute;
+      top: 53.5%;
+      left: 0;
+      width: 66.7%;
+      height: 32.6%;
+    }
+
     .contestant {
       color: $contestant;
       font-size: 2.2vh; 
+
+      @media (min-width: 1025px) {
+        height: unset;
+        width: 49.8%;
+        flex-basis: 18.9%;
+      }
 
       &::before {
         background-color: $highlight;
@@ -75,6 +123,18 @@ form {
         background: $douze;
       }
 
+    }
+  }
+  
+  button {
+    @media (min-width: 1025px) {
+      position: absolute;
+      top: 79.5%;
+      right: 0;
+      width: 33%;
+      height: 6.3%;
+      background-color: $highlight;
+      color: $contestant;
     }
   }
 }

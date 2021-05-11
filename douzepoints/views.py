@@ -22,7 +22,7 @@ def index():
 
 @bp.route("/home")
 def home():
-    return render_template("welcome.html")
+    return render_template("home.html")
 
 
 
@@ -222,7 +222,7 @@ def auth(code):
     if form.validate_on_submit():
         contest = Contest.query.filter_by(code=code).first()
         if contest and verify_password(request.form['password'], contest.password):
-            response.set_cookie('auth', hash_password(str(contest.id)))
+            response.set_cookie('auth', hash_password(str(contest.id)), httponly=True)
     return response
 
 
@@ -236,7 +236,7 @@ def vote(code):
             response = make_response(render_template('auth.html', code=code, form=AuthenticateContest()))
             # if not (request.cookies.get('auth') and verify_password(code, request.cookies.get('auth'))):
             if not verify_password(str(contest.id), request.cookies.get('auth')):
-                response.set_cookie('auth', hash_password('false'))
+                response.set_cookie('auth', hash_password('false'), httponly=True)
                 return response
 
         closed, _ = daysLeft(contest)

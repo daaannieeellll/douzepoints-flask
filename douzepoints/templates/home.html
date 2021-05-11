@@ -1,25 +1,30 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.js"></script>
-    <script type="text/javascript" src="/static/js/welcome.js"></script>
-    <link rel="stylesheet" href="/static/css/welcome.css">
+    <script type="text/javascript" src="/static/js/home.js"></script>
+    <link rel="stylesheet" href="/static/css/home.css">
     <title>Home</title>
 </head>
 <body>
-    <div id="welcome">
-        <img src="/static/assets/images/welcome.svg" alt="">
-    </div>
     <nav>
-        <div id="vote">
+        <div>
+            <a class="navbtn" href="/login">Get started!</a>
+        </div>
+    </nav>
+    <div class="banner">
+        <div class="frame">
+            <div class="bg"></div>
+            <img src="/static/assets/images/logo.svg" alt="" class="logo">
+        </div>
+        <div class="vote">
             <input type="text" name="code" id="code" placeholder="Enter code to vote">
             <button>Vote</button>
         </div>
-        <a class="navbtn" href="/login">Get started!</a>
-    </nav>
+    </div>
 
 </body>
 </html>
