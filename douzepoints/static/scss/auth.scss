@@ -13,6 +13,10 @@ body {
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
+    
+    @media (prefers-color-scheme: dark) {
+        background-color: #111;
+    }
 }
 
 a {
@@ -68,7 +72,7 @@ a {
         background-image: url("/static/assets/images/bg.jpg");
         background-position: center;
         background-size: cover;
-        filter: blur(100px) brightness(0.9);
+        filter: blur(45px) saturate(75%);
     }
 }
 
@@ -90,7 +94,8 @@ form {
             border-radius: 5px;
         }
 
-        button[type="submit"] {
+        button[type="submit"], input[type="submit"] {
+            appearance: none;
             color: white;
             height: 30px;
             background-color: #fff5;

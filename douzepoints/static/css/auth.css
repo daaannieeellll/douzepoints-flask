@@ -23,6 +23,12 @@ body {
   font-weight: 300;
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111;
+  }
+}
+
 a {
   color: white;
 }
@@ -96,8 +102,8 @@ a {
   background-image: url("/static/assets/images/bg.jpg");
   background-position: center;
   background-size: cover;
-  -webkit-filter: blur(100px) brightness(0.9);
-          filter: blur(100px) brightness(0.9);
+  -webkit-filter: blur(45px) saturate(75%);
+          filter: blur(45px) saturate(75%);
 }
 
 form {
@@ -125,7 +131,10 @@ form .field input {
   border-radius: 5px;
 }
 
-form .field button[type="submit"] {
+form .field button[type="submit"], form .field input[type="submit"] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   color: white;
   height: 30px;
   background-color: #fff5;
