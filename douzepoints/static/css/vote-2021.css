@@ -1,10 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
 body {
-  background-image: url("/static/assets/images/2018.png");
-  background-size: cover;
-  background-position: 50% 50%;
+  background-color: #1100A0;
   font-size: 1em;
-  color: white;
+  color: #F2F2F4;
 }
 
 input, select {
@@ -14,7 +12,7 @@ input, select {
 
 @media (min-width: 1025px) {
   form {
-    height: 78vh;
+    height: 72vh;
     width: 80vw;
     max-width: none;
     top: 50.5%;
@@ -25,7 +23,7 @@ input, select {
 }
 
 form .info {
-  background: #083F7F;
+  background: #150154;
 }
 
 @media (min-width: 1025px) {
@@ -33,8 +31,8 @@ form .info {
     position: absolute;
     top: 0;
     left: 0;
-    width: 66.7%;
-    height: 53%;
+    width: 64.4%;
+    height: 60.6%;
   }
 }
 
@@ -43,18 +41,18 @@ form .info {
     position: absolute;
     top: 0;
     right: 0;
-    width: 33%;
-    height: 79%;
+    width: 35%;
+    height: 92.3%;
   }
 }
 
 form .presenter .image-view {
-  background: #083F7F;
+  background: #150154;
 }
 
 @media (min-width: 1025px) {
   form .presenter .image-view {
-    height: 66.9%;
+    height: 87%;
     padding-top: 0;
   }
 }
@@ -65,12 +63,12 @@ form .presenter .image-view::before {
 
 form .presenter #name {
   color: white;
-  background: #083F7F;
+  background: #150154;
 }
 
 @media (min-width: 1025px) {
   form .presenter #name {
-    height: 32.3%;
+    height: 12.3%;
     margin: 0;
   }
 }
@@ -94,15 +92,15 @@ form .presenter #name::placeholder {
 @media (min-width: 1025px) {
   form .points {
     position: absolute;
-    top: 53.5%;
+    top: 61.3%;
     left: 0;
-    width: 66.7%;
-    height: 32.6%;
+    width: 64.4%;
+    height: 39.7%;
   }
 }
 
 form .points .contestant {
-  color: #083F7F;
+  color: #F2F2F4;
   font-size: 2.2vh;
 }
 
@@ -116,35 +114,29 @@ form .points .contestant {
 }
 
 form .points .contestant::before {
-  background-color: #90FFD5;
-  font-size: 140%;
-}
-
-form .points .contestant[data-points="12"]::before {
-  color: #083F7F;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #DD4099;
+  font-size: 130%;
+  font-weight: 600;
+  width: 60px;
 }
 
 form .points select {
-  background: #083F7F;
-  color: #e0e0e0;
+  background: #F2F2F4;
+  color: #222;
   font-size: 110%;
-}
-
-form .points select[name="12"] {
-  color: #262626;
-  background: #E6EC6A;
+  font-weight: 600;
+  padding-left: 83px;
 }
 
 @media (min-width: 1025px) {
   form button {
     position: absolute;
-    top: 79.5%;
+    bottom: 0;
     right: 0;
-    width: 33%;
-    height: 6.3%;
-    background-color: #90FFD5;
-    color: #083F7F;
+    width: 35%;
+    height: 7.2%;
+    background-color: #DD4099;
+    color: #F2F2F4;
   }
 }
-/*# sourceMappingURL=2018.css.map */
+/*# sourceMappingURL=vote-2021.css.map */

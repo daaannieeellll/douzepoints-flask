@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+body {
+    margin: 0;
+}
+
+nav {
+    height: 60px;
+    background: hsl(0, 0%, 97%);
+    position: sticky;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    
+    div {
+        width: 80%;
+        display: flex;
+        justify-content: flex-end;
+
+        img {
+            height: 1em;
+            filter: invert(1);
+        }
+    }
+}

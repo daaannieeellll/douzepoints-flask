@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+body {
+  background-image: url("/static/assets/images/2019.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 1em;
+  color: white;
+}
+
+input, select {
+  border-radius: 0;
+  border: none;
+}
+
+form {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), radial-gradient(at top center, #4da9ff 0%, rgba(36, 52, 66, 0) 70%), -webkit-gradient(linear, left top, right top, from(rgba(121, 167, 210, 0.1)), color-stop(10%, rgba(121, 167, 210, 0.2)), color-stop(50%, rgba(121, 167, 210, 0))), -webkit-gradient(linear, right top, left top, from(rgba(121, 167, 210, 0.1)), color-stop(10%, rgba(121, 167, 210, 0.2)), color-stop(50%, rgba(121, 167, 210, 0)));
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), radial-gradient(at top center, #4da9ff 0%, rgba(36, 52, 66, 0) 70%), linear-gradient(to right, rgba(121, 167, 210, 0.1) 0%, rgba(121, 167, 210, 0.2) 10%, rgba(121, 167, 210, 0) 50%), linear-gradient(to left, rgba(121, 167, 210, 0.1) 0%, rgba(121, 167, 210, 0.2) 10%, rgba(121, 167, 210, 0) 50%);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  border-top: 2px solid rgba(184, 203, 224, 0.5);
+  border-bottom: 1px solid rgba(184, 203, 224, 0.5);
+}
+
+form .info {
+  background: rgba(6, 66, 122, 0.4);
+}
+
+form .presenter .image-view {
+  background: rgba(6, 66, 122, 0.4);
+}
+
+form .presenter .image-view::before {
+  color: #f2f2f2;
+}
+
+form .presenter #name {
+  color: white;
+  background-color: rgba(6, 66, 122, 0.4);
+}
+
+form .presenter #name::-webkit-input-placeholder {
+  color: #f2f2f2;
+}
+
+form .presenter #name:-ms-input-placeholder {
+  color: #f2f2f2;
+}
+
+form .presenter #name::-ms-input-placeholder {
+  color: #f2f2f2;
+}
+
+form .presenter #name::placeholder {
+  color: #f2f2f2;
+}
+
+form .points .contestant {
+  color: #e0e0e0;
+  font-size: 2.2vh;
+}
+
+form .points .contestant::before {
+  background-color: #0084ff;
+  font-size: 140%;
+  font-weight: 600;
+}
+
+form .points .contestant[data-points="12"]::before {
+  color: #262626;
+  background-color: #fcf4ca;
+  -webkit-box-shadow: 0px 0px 5px #fcf4ca;
+          box-shadow: 0px 0px 5px #fcf4ca;
+}
+
+form .points select {
+  background: -webkit-gradient(linear, left top, right top, from(#063c79), color-stop(70%, #0084ff));
+  background: linear-gradient(to right, #063c79 0%, #0084ff 70%);
+  color: #e0e0e0;
+  font-size: 110%;
+  font-weight: 600;
+}
+
+form .points select[name="12"] {
+  color: #262626;
+  background: #efd68f;
+  -webkit-box-shadow: 0px 0px 5px #efd68f;
+          box-shadow: 0px 0px 5px #efd68f;
+}
+
+form .points select option {
+  color: black;
+}
+/*# sourceMappingURL=vote-2019.css.map */

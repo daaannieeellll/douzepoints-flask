@@ -1,0 +1,111 @@
+@import "../colors";
+@import "../mixins";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+$gradient-dark: hsl(212,90,25);
+$gradient-bright: hsl(209,100,50);
+$transparent-blue: hsla(209, 91%, 25%, 0.4);
+$bg-gradient: linear-gradient(to right,
+                        hsla(209,50%,0,0.3) 0%,
+                        hsla(209,50%,0,0.3) 100%
+          ),
+          radial-gradient(at top center,
+                        hsla(209,100%,65%,1) 0%,
+                        hsla(209,30%,20%,0) 70%
+          ),
+          linear-gradient(to right,
+                        hsla(209,50%,65%,0.1) 0%,
+                        hsla(209,50%,65%,0.2) 10%,
+                        hsla(209,50%,65%,0) 50%
+          ),
+          linear-gradient(to left,
+                        hsla(209,50%,65%,0.1) 0%,
+                        hsla(209,50%,65%,0.2) 10%,
+                        hsla(209,50%,65%,0) 50%
+          );
+
+body {
+  background-image: url("/static/assets/images/2019.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 1em;
+  color: $white;
+}
+
+input, select {
+  border-radius: 0;
+  border: none;
+}
+
+form {
+  background: $bg-gradient;
+  backdrop-filter: blur(1px);
+  
+  border-top: 2px solid hsla(212, 40%, 80%, .5);
+  border-bottom: 1px solid hsla(212, 40%, 80%, .5);
+  
+  .info {
+    background: $transparent-blue;
+  }
+
+  .presenter {
+    .image-view {
+      background: $transparent-blue;
+
+      &::before {
+        color: $grey;
+      }
+    }
+
+    #name {
+      color: $white;
+      background-color: $transparent-blue;
+
+      &::placeholder {
+        color: $grey;
+      }
+    }
+  }
+
+
+  .points {
+    .contestant {
+      color: #e0e0e0;
+      font-size: 2.2vh; 
+
+      &::before {
+        background-color: $gradient-bright;
+        font-size: 140%;
+        font-weight: 600;
+      }
+
+      &[data-points="12"] {
+        &::before {
+          color: $black;
+          background-color: $douze-icon;
+          box-shadow: 0px 0px 5px $douze-icon;
+        }
+      }
+    }
+
+    select {
+      background: linear-gradient(to right, $gradient-dark 0%, $gradient-bright 70%);
+      color: #e0e0e0;
+      font-size: 110%;
+      font-weight: 600;
+
+      &[name="12"]{
+        color: $black;
+        background: $douze-bar;
+        box-shadow: 0px 0px 5px $douze-bar;
+      }
+
+      option {
+        color: black;
+      }
+    }
+  }
+}

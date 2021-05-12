@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 from flask.app import Flask
 from flask_wtf import FlaskForm
 from flask_security.forms import RegisterForm, LoginForm
-from wtforms import Form, StringField, PasswordField, BooleanField, SubmitField
+from wtforms import Form, StringField, PasswordField, RadioField, SubmitField
 from wtforms.fields.html5 import EmailField
 from wtforms_components import DateField, DateRange
 from wtforms.validators import DataRequired, Length, Email, Regexp, Optional
@@ -76,6 +76,9 @@ class ContestDetails(FlaskForm):
 
 class ContestPassword(FlaskForm):
     remove = SubmitField('Remove password')
+
+class ContestStyle(FlaskForm):
+    style = RadioField('Style', choices=['2018','2019', '2021'])
 
 class ContestGIF(FlaskForm):
     url = StringField('Thank you GIF', [DataRequired()])

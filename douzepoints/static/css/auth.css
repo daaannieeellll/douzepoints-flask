@@ -55,9 +55,7 @@ a {
 }
 
 .logo {
-  width: 60%;
-  height: 200px;
-  max-height: 30%;
+  width: 300px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -79,8 +77,8 @@ a {
 
 .logo p {
   font-weight: bold;
-  margin: 0;
-  letter-spacing: .05em;
+  margin: 0 0 0 0;
+  font-size: 18px;
 }
 
 .bg {

@@ -4,7 +4,7 @@ from flask_security.utils import verify_password
 
 from .database import db_session
 from .models import Contest, Contestant, Voter, Vote
-from .forms import createContestForm, AuthenticateContest, CreateContestant, ContestDetails, ContestPassword, ContestGIF, DeleteContest
+from .forms import createContestForm, AuthenticateContest, CreateContestant, ContestDetails, ContestPassword, ContestStyle, ContestGIF, DeleteContest
 from .functions import extractGiphy, getVotes, getScores, daysLeft, randomCode, sortContestants
 
 bp = Blueprint('routes', __name__, url_prefix='')
@@ -83,6 +83,7 @@ def contestSettings(id):
         votes = len(contest.voters)
         detailsForm = ContestDetails()
         passwordForm = ContestPassword()
+        styleForm = ContestStyle()
         GIFForm = ContestGIF()
         deleteForm = DeleteContest()
 
@@ -91,9 +92,12 @@ def contestSettings(id):
             votes=votes,
             details=detailsForm,
             password=passwordForm,
+            style=styleForm,
             GIF=GIFForm,
             delete=deleteForm
         )
+
+
 
 
 @bp.route('contests/<id>/settings/details', methods=['POST'])
@@ -119,6 +123,19 @@ def removePassword(id):
     form = ContestPassword()
     if contest and form.validate_on_submit():
         contest.password = ''
+        db_session.commit()
+    return redirect(request.referrer)
+
+@bp.route('contests/<id>/settings/style', methods=['POST'])
+@auth_required()
+def editStyle(id):
+    contest = Contest.query.filter_by(id=id)\
+                           .filter_by(owner_id=current_user.id)\
+                           .first()
+    form = ContestStyle()
+    if contest and form.validate_on_submit():
+        print(request.form['style'])
+        contest.style = request.form['style']
         db_session.commit()
     return redirect(request.referrer)
 

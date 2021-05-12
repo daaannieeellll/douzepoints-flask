@@ -13,7 +13,7 @@ body {
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
-    
+
     @media (prefers-color-scheme: dark) {
         background-color: #111;
     }
@@ -37,21 +37,17 @@ a {
 }
 
 .logo {
-    width: 60%;
-    height: 200px;
-    max-height: 30%;
+    width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    a {
-        width: 100%;
-    }
+    a { width: 100%; }
     p {
         font-weight: bold;
-        margin: 0;
-        letter-spacing: .05em;
+        margin: 0 0 0 0;
+        font-size: 18px;
     }
 }
 

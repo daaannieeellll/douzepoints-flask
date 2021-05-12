@@ -15,15 +15,15 @@
         <form action="{{ url_for('.editDetails', id=contest.id ) }}" method="post">
             {{ details.hidden_tag() }}
             <div>
-                {{ details.name.label() }}:
+                {{ details.name.label() }}
                 {{ details.name() }}
             </div>
             <div>
-                {{ details.description.label() }}:
+                {{ details.description.label() }}
                 {{ details.description() }}
             </div>
             <div>
-                {{ details.password.label() }}:
+                {{ details.password.label() }}
                 {{ details.password() }}
             </div>
             <button type="submit">Apply changes</button>
@@ -39,10 +39,22 @@
             <p>Edit contestants</p>
             <div class="warning"><p>Note: In order to preserve integrity and fairness, votes already cast will be removed. Current number of votes: {{ votes }}</p></div>
             {% for c in contest.contestants %}
-            <input type="text" name="0{{ c.id }}" placeholder="{{ c.name }}">
-            <input type="checkbox" name="1{{ c.id }}">
+            <div class="contestant">
+                <input type="text" name="0{{ c.id }}" placeholder="{{ c.name }}">
+                <input type="checkbox" name="1{{ c.id }}">
+            </div>
             {% endfor %}
             <button class="add">+</button>
+            <button type="submit">Apply changes</button>
+        </form>
+        
+        <form action="{{ url_for('.editStyle', id=contest.id) }}" method="post">
+            <div>Set contest style</div>
+            {{ style.hidden_tag() }}
+            {% for option in style.style %}
+                {{ option.label }}
+                {{ option }}
+            {% endfor %}
             <button type="submit">Apply changes</button>
         </form>
         

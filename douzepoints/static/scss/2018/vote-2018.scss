@@ -1,7 +1,7 @@
-@import "colors";
-@import "mixins";
+@import "../colors";
+@import "../mixins";
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 
 $background: #081740;
 $contestant: #083F7F;
@@ -10,8 +10,10 @@ $douze: #E6EC6A;
 
 body {
   background-image: url("/static/assets/images/2018.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% 50%;
   font-size: 1em;
   color: $white;
 }
@@ -103,6 +105,7 @@ form {
       &::before {
         background-color: $highlight;
         font-size: 140%;
+        font-weight: 600;
       }
 
       &[data-points="12"] {
