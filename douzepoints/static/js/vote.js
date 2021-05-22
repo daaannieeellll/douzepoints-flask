@@ -20,4 +20,14 @@ $('#name').keydown((event) => {
         return false;
     }
 });
+function validateVote() {
+    var valid = true;
+    if (!$("#name").val() || !$("#gif-input").val())
+        valid = false;
+    $('.contestant select').each((i, e) => {
+        if (!$(e).val())
+            return valid = false;
+    });
+    return valid ? true : false;
+}
 //# sourceMappingURL=vote.js.map

@@ -12,30 +12,17 @@
 </head>
 <body>
     
-    <form action="" method="POST">
+    <form action="" method="POST" onsubmit="return validateVote();">
         <div class="info">
             <h1>{{ contest.name }}</h1>
             {% if contest.description %}<p>{{ contest.description }}</p> {% endif %}
         </div>
         <div class="presenter">
             <div class="image-view">
-            <img
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-            />
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
             </div>
             <input type="text" name="gif" id="gif-input" readonly hidden />
-
-            <div id="giphy-selector" style="display: none;">
-            <div id="outer-container">
-                <div id="giph-container"></div>
-            </div>
-            <div class="search">
-                <input type="text" placeholder="Search GIPHY" />
-                <div class="searchbtn">
-                <img src="/static/assets/images/search.svg" alt="Search" />
-                </div>
-            </div>
-            </div>
+            {% include 'giphy.html' %}
 
             <input type="text" name="name" id="name" placeholder="Enter your name" />
         </div>

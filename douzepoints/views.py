@@ -1,3 +1,4 @@
+from uuid import uuid4
 from flask import Blueprint, render_template, request, redirect, abort, make_response
 from flask_security import current_user, auth_required, hash_password
 from flask_security.utils import verify_password
@@ -148,8 +149,7 @@ def editContestants(id):
     if contest:
         Voter.query.filter_by(contest_id=id).delete()
         for key, name in request.form.items(multi=True):
-            action = key[:1]
-            cid = key[1:]
+            action, cid = key[0], key[1:]
             contestant = None
             if cid:
                 contestant = Contestant.query.filter_by(contest_id=id).filter_by(id=cid).first()
@@ -224,9 +224,12 @@ def results(id):
 
 
 
-@bp.route('/<int:n>')
-def num(n):
-    return redirect(f'/vote/{n}', code=302)
+@bp.route('/<n>')
+def num(n: str):
+    if n.isnumeric():
+        return redirect(f'/vote/{n}', code=302)
+    else:
+        return redirect('/', code=302)
 
 
 
@@ -263,44 +266,38 @@ def vote(code):
         scores = getScores(len(contest.contestants))
         return render_template('vote.html', contest=contest, scores=scores)
 
-    abort(404)
+    return redirect('/', code=302)
 
 
 @bp.route('/vote/<code>', methods=['POST'])
 def processVote(code):
+    contest = Contest.query.filter_by(code=code).first()
+    scores = getScores(len(contest.contestants))
+    votes = []
+    voter = Voter(contest.id)
+    
     try:
         vote = request.form.to_dict()
-        votes = []
-        contest = Contest.query.filter_by(code=code).first()
-        scores = getScores(len(contest.contestants))
-        url = extractGiphy(vote.pop('gif'))
-        if not url:
-            raise ValueError("The provided url is invalid")
-
-        voter = Voter(contest.id)
-        voter.gif = url
+        
+        voter.id = uuid4()
+        voter.gif = extractGiphy(vote.pop('gif'))
         voter.name = vote.pop('name')
-        db_session.add(voter)
-        db_session.commit()
-
-        if len(vote) != len(scores):
-            raise ValueError('Invalid score distribution')
+        print(vote)
+        if not voter.gif or not voter.name or len(vote) != len(scores):
+            raise ValueError("Invalid vote")
         
         for points, contestant in vote.items():
             points = int(points)
             scores.remove(points)
             votes.append(Vote(voter.id, contestant, points))
 
+        db_session.add(voter)
         db_session.add_all(votes)
         db_session.commit()
         return render_template('voting_succesful.html', gif=contest.gif)
 
     except:
-        if voter:
-            db_session.delete(voter)
-            db_session.commit()
         return redirect(request.referrer)
-
 
 
 

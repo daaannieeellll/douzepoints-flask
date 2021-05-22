@@ -8,7 +8,7 @@ def getVotes(cid: str, use_name: bool = False):
     data = []
     voters = Voter.query.filter_by(contest_id=cid)
     for voter in voters:
-        d = {"name": voter.name, "votes": {}}
+        d = {"name": voter.name, "gif": voter.gif, "votes": {}}
         votes = Vote.query.filter_by(voter_id=voter.id)
         for vote in votes:
             contestant = Contestant.query.filter_by(id=vote.contestant_id).first()
@@ -37,6 +37,9 @@ def daysLeft(contest: Contest):
 
 def extractGiphy(string: str):
     """ Validates string by extracting giphy url """
+    if not string:
+        return None
+
     regex = r"https?://media\d?\.giphy\.com/media/[^ /\n]+/[a-z0-9\-\_]*\.(gif|webp|mp4)"
     url = re.search(regex, string)
     return url.group()

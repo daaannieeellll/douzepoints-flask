@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+body {
+  background-image: url("/static/assets/images/2019.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  color: white;
+}
+
+#view {
+  height: 89vh;
+  width: 93vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), radial-gradient(at top center, #4da9ff 0%, rgba(36, 52, 66, 0) 70%), -webkit-gradient(linear, left top, right top, from(rgba(121, 167, 210, 0.1)), color-stop(10%, rgba(121, 167, 210, 0.2)), color-stop(50%, rgba(121, 167, 210, 0))), -webkit-gradient(linear, right top, left top, from(rgba(121, 167, 210, 0.1)), color-stop(10%, rgba(121, 167, 210, 0.2)), color-stop(50%, rgba(121, 167, 210, 0)));
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), radial-gradient(at top center, #4da9ff 0%, rgba(36, 52, 66, 0) 70%), linear-gradient(to right, rgba(121, 167, 210, 0.1) 0%, rgba(121, 167, 210, 0.2) 10%, rgba(121, 167, 210, 0) 50%), linear-gradient(to left, rgba(121, 167, 210, 0.1) 0%, rgba(121, 167, 210, 0.2) 10%, rgba(121, 167, 210, 0) 50%);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  border-top: 2px solid rgba(184, 203, 224, 0.5);
+  border-bottom: 1px solid rgba(184, 203, 224, 0.5);
+}
+
+#view #leaderboard {
+  position: absolute;
+  top: 6%;
+  left: 3%;
+  width: 54.5%;
+  height: 79%;
+}
+
+#view #leaderboard .contestant {
+  position: absolute;
+  width: calc(49% - 103px);
+  width: 40%;
+  height: 7.35%;
+  background: #0b2041;
+  color: #e0e0e0;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 0.27vh;
+  padding-left: calc(calc(49% - 103px) * 0.25);
+  padding-left: 10%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3em;
+  font-weight: 600;
+  white-space: nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#view #leaderboard .contestant[data-points] {
+  background: -webkit-gradient(linear, left top, right top, from(#063c79), color-stop(70%, #0084ff));
+  background: linear-gradient(to right, #063c79 0%, #0084ff 70%);
+}
+
+#view #leaderboard .contestant[data-points]::before {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 17%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #0084ff;
+  content: attr(data-points);
+  font-size: 1.2em;
+}
+
+#view #leaderboard .contestant[data-points="12"] {
+  background: #efd68f;
+  color: #0b2041;
+}
+
+#view #leaderboard .contestant[data-points="12"]::before {
+  color: #0b2041;
+  background-color: #fcf4ca;
+  -webkit-box-shadow: 0px 0px 5px #fcf4ca;
+          box-shadow: 0px 0px 5px #fcf4ca;
+}
+
+#view #leaderboard .contestant .points {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 15%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#view #topNine .points {
+  position: absolute;
+  top: 55%;
+  left: 3%;
+  width: 55.5%;
+  height: 31%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+
+#view #topNine .points .contestant {
+  position: relative;
+  width: 39%;
+  -ms-flex-preferred-size: 19%;
+      flex-basis: 19%;
+  color: #e0e0e0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2vh;
+  margin: unset;
+  margin-bottom: 0.27vh;
+  background: -webkit-gradient(linear, left top, right top, from(#063c79), color-stop(70%, #0084ff));
+  background: linear-gradient(to right, #063c79 0%, #0084ff 70%);
+  padding-left: 10%;
+  font-size: 1.3em;
+  font-weight: 600;
+  white-space: nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#view #topNine .points .contestant::before {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 17%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #0084ff;
+  content: attr(data-points);
+  font-size: 1.2em;
+}
+
+#view #topNine .points .contestant p {
+  margin: 0;
+}
+
+#view .presenter {
+  position: absolute;
+  right: 3%;
+  top: 6%;
+  width: 37.5%;
+  height: 79%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#view .presenter .image-view {
+  position: relative;
+  width: 100%;
+  height: 92.4%;
+  padding-top: 0;
+  background: rgba(6, 66, 122, 0.4);
+}
+
+#view .presenter .image-view img {
+  position: absolute;
+  top: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+#view .presenter #name {
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  width: 100%;
+  height: 7%;
+  background: rgba(6, 66, 122, 0.4);
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#view .presenter #name::-webkit-input-placeholder {
+  color: #f2f2f2;
+}
+
+#view .presenter #name:-ms-input-placeholder {
+  color: #f2f2f2;
+}
+
+#view .presenter #name::-ms-input-placeholder {
+  color: #f2f2f2;
+}
+
+#view .presenter #name::placeholder {
+  color: #f2f2f2;
+}
+/*# sourceMappingURL=show-2019.css.map */

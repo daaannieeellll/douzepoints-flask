@@ -59,6 +59,7 @@
         </form>
         
         <form action="{{ url_for('.updateGIF', id=contest.id) }}" method="post">
+            {% include 'giphy.html' %}
             <div>Update Thank-You-GIF</div>
             {{ GIF.hidden_tag() }}
             {{ GIF.url() }}

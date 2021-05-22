@@ -36,7 +36,7 @@ class User(Base, UserMixin):
     tf_phone_number = Column(String(64))
     tf_primary_method = Column(String(140))
     tf_totp_secret = Column(String(255))
-    contests = relationship('Contest', backref=__tablename__)
+    contests = relationship('Contest', backref=__tablename__, passive_deletes=True)
 
 class Contest(Base):
     __tablename__ = 'contest'
@@ -49,8 +49,8 @@ class Contest(Base):
     stop_voting_at = Column(Date())
     style = Column(Integer, default=2019)
     gif = Column(String(), default=None)
-    contestants = relationship('Contestant', backref=__tablename__)
-    voters = relationship('Voter', backref=__tablename__)
+    contestants = relationship('Contestant', backref=__tablename__, passive_deletes=True)
+    voters = relationship('Voter', backref=__tablename__, passive_deletes=True)
     
     def __init__(self, name, description, stop_voting_at):
         self.name = name
@@ -74,7 +74,7 @@ class Voter(Base):
     contest_id = Column(UUID(as_uuid=True), ForeignKey('contest.id', ondelete='CASCADE'))
     name = Column(String(64))
     gif = Column(String())
-    votes = relationship('Vote', backref=__tablename__)
+    votes = relationship('Vote', backref=__tablename__, passive_deletes=True)
 
     def __init__(self, contest_id):
         self.contest_id = contest_id
